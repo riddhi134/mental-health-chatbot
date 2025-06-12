@@ -1,10 +1,7 @@
-# File: train_emotion_model.ipynb
-# (This would be the Jupyter notebook for training the emotion classifier)
 
-# You can convert this notebook to a .py file if needed using Jupyter's "Download as Python (.py)" option
 
 # ==================== STEP 1: Install Libraries ====================
-!pip install transformers datasets torch scikit-learn
+# !pip install transformers datasets torch scikit-learn
 
 # ==================== STEP 2: Load & Preprocess ====================
 from datasets import load_dataset
@@ -14,7 +11,7 @@ from torch.utils.data import Dataset, DataLoader
 import torch
 from transformers import BertTokenizer
 
-raw_datasets = load_dataset("daily_dialog")
+raw_datasets = load_dataset("daily_dialog", trust_remote_code=True)
 train_data = raw_datasets["train"]
 
 texts, labels = [], []
